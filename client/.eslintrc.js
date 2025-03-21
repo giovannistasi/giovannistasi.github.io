@@ -26,15 +26,16 @@ module.exports = {
     quotes: ["error", "double"],
     semi: ["error", "always"],
     "import/order": [
-      "error",
-      {
-        groups: ["builtin", "external", "internal"],
-        alphabetize: {
-          order: "asc",
-          caseInsensitive: true,
-        },
-      },
-    ],
+  "error",
+  {
+    "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+    "newlines-between": "always",
+    "alphabetize": {
+      "order": "asc",
+      "caseInsensitive": true
+    }
+  }
+]
   },
   settings: {
     "import/resolver": {

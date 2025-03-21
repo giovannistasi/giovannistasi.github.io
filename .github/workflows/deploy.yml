@@ -1,0 +1,75 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: |
+          cd client
+          npm ci
+
+      - name: Create redirect files
+        run: |
+          cd client
+          mkdir -p public
+          # Create index.html redirect
+          echo '<!DOCTYPE html>' > public/index.html
+          echo '<html>' >> public/index.html
+          echo '<head>' >> public/index.html
+          echo '  <meta charset="utf-8">' >> public/index.html
+          echo '  <meta http-equiv="refresh" content="0; URL=/boot-up" />' >> public/index.html
+          echo '  <script>window.location.href = "/boot-up";</script>' >> public/index.html
+          echo '</head>' >> public/index.html
+          echo '<body>' >> public/index.html
+          echo '</body>' >> public/index.html
+          echo '</html>' >> public/index.html
+
+      - name: Modify next.config.js
+        run: |
+          cd client
+          echo '/** @type {import("next").NextConfig} */' > next.config.js.new
+          echo 'const nextConfig = {' >> next.config.js.new
+          echo '  output: "export",' >> next.config.js.new
+          echo '  images: { unoptimized: true },' >> next.config.js.new
+          echo '  eslint: { ignoreDuringBuilds: true },' >> next.config.js.new
+          echo '};' >> next.config.js.new
+          echo 'module.exports = nextConfig;' >> next.config.js.new
+          mv next.config.js.new next.config.js
+
+      - name: Build
+        run: |
+          cd client
+          npm run build
+
+      - name: Copy index.html to root
+        run: |
+          cd client
+          cp public/index.html out/index.html
+
+      - name: Create .nojekyll file
+        run: |
+          cd client/out
+          touch .nojekyll
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: client/out
+          branch: gh-pages
+          clean: true
