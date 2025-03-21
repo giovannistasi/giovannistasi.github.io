@@ -15,13 +15,13 @@ This project creates a unique portfolio experience by replicating a desktop envi
 
 ## Tech Stack & Libraries
 
-- **TypeScript**: For type-safe code development
-- **React**: UI component library
-- **Next.js**: React framework for server-rendered applications
-- **Vercel**: Deployment and hosting platform
-- **xterm.js**: Terminal emulator for the browser
-- **Chakra UI**: Component library for the UI
-- **Framer Motion**: Animation library for React
+- **React**: Frontend UI library for building the interface
+- **TypeScript**: For type-safe JavaScript development
+- **Next.js**: React framework for server-side rendering and static site generation
+- **Redux**: State management for the application
+- **Chakra UI**: Component library for building the UI elements
+- **Framer Motion**: Animation library for smooth transitions
+- **xterm.js**: Terminal emulator implementation for the browser
 
 <br />
 
