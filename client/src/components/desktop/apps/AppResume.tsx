@@ -3,6 +3,7 @@ import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 
 import { AppLayout } from "./layout/AppLayout";
+
 import type { App } from "@/lib/apps/apps";
 import { 
   setActiveDesktopApp as setActiveDesktopAppAction,
