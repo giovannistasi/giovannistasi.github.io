@@ -4,7 +4,7 @@ import { Terminal as Terminal_ } from "xterm";
 
 export type TerminalCommand =
   | "help"
-  | "startx"
+  | "start"
   | "reboot"
   | "shutdown"
   | "clear"
@@ -26,8 +26,8 @@ export function executeCommand({ command, terminal, router }: Config) {
         newline;
         terminal.write("\r\nAvailable commands:");
         newline;
-        terminal.write("\r\n  help\t\tgetting this help");
-        terminal.write("\r\n  startx\taccess GUI");
+        terminal.write("\r\n  help\t\tshow available commands");
+        terminal.write("\r\n  start\taccess GUI");
         terminal.write("\r\n  shutdown\tshut the site down");
         terminal.write("\r\n  reboot\trestart the site");
         terminal.write("\r\n  clear\t\tclear the terminal\r\n");
@@ -35,16 +35,16 @@ export function executeCommand({ command, terminal, router }: Config) {
         newline;
         terminal.write("\r\nAvailable commands:");
         newline;
-        terminal.write("\r\n\thelp\t\tgetting this help");
-        terminal.write("\r\n\tstartx\t\taccess GUI");
+        terminal.write("\r\n\thelp\t\tshow available commands");
+        terminal.write("\r\n\tstart\t\taccess GUI");
         terminal.write("\r\n\tshutdown\tshut the site down");
         terminal.write("\r\n\treboot\t\trestart the site");
         terminal.write("\r\n\tclear\t\tclear the terminal\r\n");
       }
       break;
-    case "startx":
+    case "start":
       if (router.pathname.includes("desktop")) {
-        terminal.write("you're already accessing the GUI");
+        terminal.write("GUI already active");
       } else {
         router.replace("/desktop");
       }
@@ -72,11 +72,11 @@ export function executeCommand({ command, terminal, router }: Config) {
       terminal.write("command not found: " + command);
       terminal.write("\r\ndid you mean 'help' ?\r\n");
       break;
-    case "start":
-    case "tartx":
+    case "star":
+    case "tart":
       newline;
       terminal.write("command not found: " + command);
-      terminal.write("\r\ndid you mean 'startx' ?\r\n");
+      terminal.write("\r\ndid you mean 'start' ?\r\n");
       break;
     case "clea":
     case "clera":

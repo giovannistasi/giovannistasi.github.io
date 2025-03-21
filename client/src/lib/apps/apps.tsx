@@ -1,26 +1,21 @@
-import { AppAboutMe } from "@/components/desktop/apps/AppAboutMe";
+import { AppResume } from "@/components/desktop/apps/AppResume";
 import { AppAboutSite } from "@/components/desktop/apps/AppAboutSite";
-import { AppBlog } from "@/components/desktop/apps/AppBlog";
 import { AppContacts } from "@/components/desktop/apps/AppContacts";
-import { AppEducation } from "@/components/desktop/apps/AppEducation";
-import { AppGuestBook } from "@/components/desktop/apps/AppGuestBook";
+import { AppBookReader } from "@/components/desktop/apps/AppBookReader";
 import { AppProjects } from "@/components/desktop/apps/AppProjects";
 import { AppTerminal } from "@/components/desktop/apps/AppTerminal";
-import { AppTodo } from "@/components/desktop/apps/AppTodo";
-import { AppWorkHistory } from "@/components/desktop/apps/AppWorkHistory";
+import { AppSnakeGame } from "@/components/desktop/apps/AppSnake";
+
 
 const apps = [
   "DesktopMainView",
   "AppTerminal",
-  "AppAboutMe",
+  "AppResume",
   "AppAboutSite",
-  "AppWorkHistory",
-  "AppEducation",
   "AppContacts",
   "AppProjects",
-  "AppBlog",
-  "AppTodo",
-  "AppGuestBook",
+  "AppBookReader",
+  "AppSnakeGame",
 ] as const;
 
 export type App = (typeof apps)[number];
@@ -35,10 +30,10 @@ type DesktopIcon = {
 export function makeMarkdownBasedApps(): Array<DesktopIcon> {
   return [
     {
-      iconName: "config-users.png",
-      appName: "AppAboutMe",
-      title: "About Me",
-      component: <AppAboutMe />,
+      iconName: "resume.png",
+      appName: "AppResume",
+      title: "Resume",
+      component: <AppResume />,
     },
     {
       iconName: "info.png",
@@ -53,29 +48,18 @@ export function makeMarkdownBasedApps(): Array<DesktopIcon> {
       component: <AppContacts />,
     },
     {
-      iconName: "education.png",
-      appName: "AppEducation",
-      title: "Education",
-      component: <AppEducation />,
+      iconName: "book.png",
+      appName: "AppBookReader",
+      title: "Book Reader",
+      component: <AppBookReader />,
     },
     {
-      iconName: "resume.png",
-      appName: "AppWorkHistory",
-      title: "Work History",
-      component: <AppWorkHistory />,
+      iconName: "games.png",
+      appName: "AppSnakeGame",
+      title: "Snake",
+      component: <AppSnakeGame />,
     },
-    {
-      iconName: "puzzle.png",
-      appName: "AppTodo",
-      title: "To-Dos",
-      component: <AppTodo />,
-    },
-    {
-      iconName: "puzzle.png",
-      appName: "AppGuestBook",
-      title: "To-Dos",
-      component: <AppGuestBook />,
-    },
+  
   ];
 }
 
@@ -86,12 +70,6 @@ export function makeLocalApps(): Array<DesktopIcon> {
       appName: "AppProjects",
       title: "Hobby Projects",
       component: <AppProjects />,
-    },
-    {
-      iconName: "book.png",
-      appName: "AppBlog",
-      title: "Blog",
-      component: <AppBlog />,
     },
     {
       iconName: "terminal.png",

@@ -17,7 +17,7 @@ import {
 } from "@/store/desktop";
 
 const Container = styled(motion.div)`
-  height: auto;
+  height: 100%;
   width: 1000px;
   display: flex;
   flex-direction: column;

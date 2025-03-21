@@ -18,23 +18,16 @@ const makeText: (isTouchDevice: boolean) => Array<AnimatedText> = (
       };
 
   return [
-    { value: "Starting the site", status: "Ok" },
-    { value: "Loading . . .", status: "Loading" },
-    { value: "Unexpected error occurred", status: "Error" },
-    { value: "Retrying", status: "Ok" },
-    { value: "Loading . . .", status: "Loading" },
-    { value: "Retrying", status: "Ok" },
-    { value: "Loading . . .", status: "Loading" },
-    { value: "Retrying", status: "Ok" },
-    { value: "Loading . . .", status: "Loading" },
-    { value: "Retrying", status: "Ok" },
-    { value: "Loading . . .", status: "Loading" },
-    { value: "It's failed, sorry :(", status: "Error" },
-    { value: ". . .", status: "Loading" },
-    { value: ". . .", status: "Loading" },
-    { value: "Still fai-", status: "Error" },
-    { value: "It's successful now", status: "Ok" },
-    { value: "bip bop I'm a robot", status: "Ok" },
+    { value: "Booting StasiOS v1.0.4...", status: "Ok" },
+    { value: "Loading kernel modules", status: "Loading" },
+    { value: "Mounting filesystems", status: "Loading" },
+    { value: "ERROR: Missing semicolon on line 42", status: "Error" },
+    { value: "Applying automatic fix", status: "Loading" },
+    { value: "System recovery successful", status: "Ok" },
+    { value: "Initializing network services", status: "Loading" },
+    { value: "Loading desktop environment", status: "Loading" },
+    { value: "Starting UI components", status: "Loading" },
+    { value: "System ready - Welcome to stasi.dev", status: "Ok" },
     lastElement,
   ];
 };

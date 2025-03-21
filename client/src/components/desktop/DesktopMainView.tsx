@@ -52,10 +52,7 @@ export function DesktopMainView() {
   useEffect(() => {
     const eventHandler = (event: KeyboardEvent) => {
       if (focusedApp !== "DesktopMainView") {
-        // set active app upon pressing enter when there is a focused app
-        if (event.key === "Enter") {
-          setActiveDesktopApp(focusedApp);
-        } else if (event.key === "Escape") {
+        if (event.key === "Escape") {
           // release focused app
           setFocusedDesktopApp("DesktopMainView");
         }
@@ -72,15 +69,21 @@ export function DesktopMainView() {
       const isFocusedOnAnyApp = focusedApp !== "DesktopMainView";
 
       if (isFocusedOnAnyApp) {
-        const isTargetNotDesktopIcon =
-          (e.target as HTMLDivElement)?.className
-            .split(" ")
-            .includes(className.desktopIcon) === false;
+        if (e.target.className.isArray) {
 
-        if (isTargetNotDesktopIcon) {
-          setFocusedDesktopApp("DesktopMainView");
-        }
+          const isTargetNotDesktopIcon =
+            (e.target as HTMLDivElement)?.className
+              .split(" ")
+              .includes(className.desktopIcon) === false;
+
+          if (isTargetNotDesktopIcon) {
+            setFocusedDesktopApp("DesktopMainView");
+          }
+        } 
+      else {
+        setFocusedDesktopApp(focusedApp);
       }
+    }
     },
     [focusedApp, setFocusedDesktopApp]
   );
@@ -98,7 +101,7 @@ export function DesktopMainView() {
   return (
     <Flex
       flexGrow={1}
-      backgroundImage="url(/images/desktop-bg/debian-uwu.png)"
+      backgroundImage="url(/images/desktop-bg/debian.png)"
       backgroundRepeat="repeat"
       pos="relative"
       backgroundPosition="center"

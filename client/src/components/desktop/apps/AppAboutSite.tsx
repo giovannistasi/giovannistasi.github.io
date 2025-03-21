@@ -1,93 +1,45 @@
 import { AppMarkdownLayout } from "@/components/desktop/apps/layout/AppMarkdownLayout";
 
-const md = `
-## **About site**
+const readme = `
+  # stasi.dev - Interactive Developer Portfolio
 
-This is Fahru personal site
-
-<br />
-
-## **Source Code**
-
-Available on github:
-
-[https://github.com/mfakhrusy/fahru.me](https://github.com/mfakhrusy/fahru.me) <ExternalLinkIcon />
+A personal website that simulates a desktop and terminal environment.
 
 <br />
 
-## **Tech Stack & Libraries**
+## Overview
 
-- typescript
-- reactJS
-- nextJS
-- vercel
-- xtermjs
-- chakra-ui
-- framer-motion
+This project creates a unique portfolio experience by replicating a desktop environment in the browser. Visitors can interact with a functional terminal, open applications, and explore my projects and skills through a familiar desktop interface.
 
 <br />
 
-## **Icons**
+## Tech Stack & Libraries
 
-[Moka Icons](https://snwh.org/moka) by [Sam Hewitt](https://samuelhewitt.com) 
-
-licensed under [CC-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/) <ExternalLinkIcon />
-
-<br />
-
-## **Background**
-
-[GitHub](https://github.com/PineAndApplePizza/open-wallpapers/) by PineAndApplePizza
-
-licensed under [GPL](https://www.gnu.org/licenses/gpl-3.0.html)
-
-original logo creator [u/Ishaan_P](https://www.reddit.com/user/Ishaan_P)
+- **TypeScript**: For type-safe code development
+- **React**: UI component library
+- **Next.js**: React framework for server-rendered applications
+- **Vercel**: Deployment and hosting platform
+- **xterm.js**: Terminal emulator for the browser
+- **Chakra UI**: Component library for the UI
+- **Framer Motion**: Animation library for React
 
 <br />
 
-## **About site**
+## Icons
 
-This is Fahru personal site
-
-<br />
-
-## **Source Code**
-
-Available on github:
-
-[https://github.com/mfakhrusy/fahru.me](https://github.com/mfakhrusy/fahru.me) <ExternalLinkIcon />
+- **Moka Icons** by Sam Hewitt
+- Licensed under CC-SA-4.0
 
 <br />
 
-## **Tech Stack & Libraries**
+## Features
 
-- typescript
-- reactJS
-- nextJS
-- vercel
-- xtermjs
-- chakra-ui
-- framer-motion
-
-<br />
-
-## **Icons**
-
-[Moka Icons](https://snwh.org/moka) by [Sam Hewitt](https://samuelhewitt.com) 
-
-licensed under [CC-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/) <ExternalLinkIcon />
-
-<br />
-
-## **Background**
-
-[GitHub](https://github.com/PineAndApplePizza/open-wallpapers/) by PineAndApplePizza
-
-licensed under [GPL](https://www.gnu.org/licenses/gpl-3.0.html)
-
-original logo creator [u/Ishaan_P](https://www.reddit.com/user/Ishaan_P)  
+- Interactive terminal with custom commands
+- Window management system (open, close, resize, minimize)
+- Desktop applications (Resume, Projects, Contact, etc.)
+- Responsive design
 `;
 
 export function AppAboutSite() {
-  return <AppMarkdownLayout markdown={md} title="About Site" />;
+  return <AppMarkdownLayout markdown={readme} title="About Site" />;
 }

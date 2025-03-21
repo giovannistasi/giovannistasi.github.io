@@ -16,7 +16,7 @@ export function AppLayoutContent({
     <Flex
       flexDir="column"
       w="100%"
-      h={isTouchDevice ? "auto" : "unset"}
+      h={isTouchDevice ? "auto" : "100%"}
       minH={isTouchDevice ? "calc(100vh - 57px)" : "unset"}
       pb={noPadding ? 0 : 4}
     >

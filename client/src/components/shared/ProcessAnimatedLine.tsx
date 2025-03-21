@@ -40,7 +40,7 @@ export function ProcessAnimatedLine({
         color: "white",
         whiteSpace: "nowrap",
         opacity: "0%",
-        fontFamily: "DOS VGA",
+        fontFamily: "monospace",
         fontSize: isTouchDevice ? "12px" : "18px",
       }}
       animate={{

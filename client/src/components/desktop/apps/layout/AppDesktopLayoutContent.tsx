@@ -98,7 +98,7 @@ export function AppDesktopLayoutContent({
         p={noPadding ? 0 : 4}
         overflowY="auto"
         flexDir="column"
-        h={isFullScreen ? "100%" : "unset"}
+        h={isFullScreen ? "100%" : "100%"}
         minH="500px"
         cursor="default"
       >

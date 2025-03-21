@@ -11,7 +11,7 @@ export function BlackTerminalPage({
       p="10px"
       flexDir="column"
       color="white"
-      fontFamily="DOS VGA"
+      fontFamily="monospace"
       height="auto"
       minHeight="100vh"
     >

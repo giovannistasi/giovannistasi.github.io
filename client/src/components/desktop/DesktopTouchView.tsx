@@ -28,7 +28,7 @@ export function DesktopTouchView() {
     <Flex
       flexGrow={1}
       bgColor="aliceblue"
-      backgroundImage="url(/images/desktop-bg/debian-uwu.png)"
+      backgroundImage="url(/images/desktop-bg/debian.png)"
       backgroundRepeat="no-repeat"
       pos="relative"
       backgroundPosition="center"

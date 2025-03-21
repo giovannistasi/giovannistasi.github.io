@@ -51,7 +51,7 @@ export function AppTerminal() {
         {shouldRenderTerminal ? (
           !isClosingDown && <Terminal withHelp={true} />
         ) : (
-          <Text fontFamily="DOS VGA">Loading...</Text>
+          <Text fontFamily="monospace">Loading...</Text>
         )}
       </Flex>
     </AppLayout>

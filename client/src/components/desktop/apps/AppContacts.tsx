@@ -3,38 +3,27 @@ import { AppMarkdownLayout } from "@/components/desktop/apps/layout/AppMarkdownL
 const md = `
  **Email**
 
-[hello@fahru.me](mailto:hello@fahru.me)
+[giovanni@stasi.dev](mailto:giovanni@stasi.dev)
 
 <br />
 
-**Mastodon**
+**Phone**
 
-[Fahru](https://fosstodon.org/@fahru)
-
-<br />
-
-**Twitter (inactive)**
-
-[@f_fakhrusy](https://twitter.com/f_fakhrusy)
-
-<br />
-
-**GitHub**
-
-[mfakhrusy](https://github.com/mfakhrusy/)
-
-<br />
-
-**Stack Overflow**
-
-[mfakhrusy](https://stackoverflow.com/users/5835100/mfakhrusy)
+[+39 3348882291](tel:+393348882291)
 
 <br />
 
 **LinkedIn**
 
-[M Fahru](https://www.linkedin.com/in/mfahru/)
- 
+[https://www.linkedin.com/in/giovannistasi/](https://www.linkedin.com/in/giovannistasi/)
+
+<br />
+
+**GitHub**
+
+[https://github.com/giovannistasi/](https://github.com/giovannistasi/)
+
+<br />
 `;
 
 export function AppContacts() {

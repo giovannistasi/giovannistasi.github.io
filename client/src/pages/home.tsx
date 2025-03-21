@@ -2,7 +2,6 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import { useMemo, useState } from "react";
 import { isAndroid } from "react-device-detect";
-import { ASCIITitle } from "@/components/shared/ASCIITitle";
 import { BlackTerminalPage } from "@/components/shared/BlackTerminalPage";
 import { MultilineTypewriter } from "@/components/shared/MultilineTypewriter";
 import { Terminal } from "@/components/shared/Terminal";
@@ -16,9 +15,7 @@ function HomeScreen() {
     () => (
       <MultilineTypewriter
         texts={[
-          "Hello, my name is Fahru",
-          "I'm a software engineer",
-          "and this is my personal site",
+          "Hello, welcome to my personal website",
           ". . .",
         ]}
         onFinish={() => setState("interactive")}
@@ -29,10 +26,8 @@ function HomeScreen() {
 
   return (
     <BlackTerminalPage>
-      <ASCIITitle />
-      <Box h={5} />
+      {intro}
       <Flex w="100%" flexDir="column">
-        {intro}
         {isAndroid && state === "interactive" ? (
           <>
             <Text>

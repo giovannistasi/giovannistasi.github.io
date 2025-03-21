@@ -15,7 +15,7 @@ type Props = {
 
 export function TerminalProcessAnimation({
   text,
-  stepTimeInSecond = 0.25,
+  stepTimeInSecond = 0.5,
 }: Props) {
   const duration = text.length * stepTimeInSecond;
   const stepSize = 1 / text.length;

@@ -17,10 +17,10 @@ function MyApp({ Component, pageProps }: Props) {
   return (
     <Provider>
       <Head>
-        <title>Fahru Personal Site</title>
+        <title>Giovanni Stasi Personal Site</title>
         <link
           rel="preload"
-          href="https://blog.fakhrusy.com"
+          href="https://stasi.dev"
           as="document"
         ></link>
       </Head>

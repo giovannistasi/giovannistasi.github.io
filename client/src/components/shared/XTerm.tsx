@@ -37,13 +37,14 @@ export default function XTerm(props: Props) {
     (args: App) => SetActiveDesktopAppAction
   >((payload) => dispatch(setActiveDesktopAppAction(payload)), [dispatch]);
 
+  const shellPrompt = "\x1b[0;32mguest@stasi.dev \x1b[0;34m~\x1b[0;37m$ ";
+
   useEffect(() => {
     if (ref.current) {
       const terminal = new Terminal_({
-        cursorStyle: "bar",
         cursorBlink: true,
         lineHeight: isAndroid ? 1.4 : 1.2,
-        fontFamily: "DOS VGA",
+        fontFamily: "monospace",
       });
       const fitAddon = new FitAddon();
 
@@ -57,7 +58,7 @@ export default function XTerm(props: Props) {
         terminal.write("type 'help' and hit ENTER or RETURN\r\n\r\n");
       }
       if (isAndroid) {
-        terminal.write("guest@fakhrusy.com ~$ ");
+        terminal.write(shellPrompt);
         terminal.write("\x1b[?25l"); // remove cursor
 
         let androidCommand = "";
@@ -69,7 +70,7 @@ export default function XTerm(props: Props) {
               backspaceCount += 1;
               androidCommand = androidCommand.slice(0, -1 * backspaceCount);
               androidCommand += decodeURIComponent(" ".repeat(backspaceCount));
-              terminal.write("\r" + "guest@fakhrusy.com ~$ ");
+              terminal.write("\r" + shellPrompt);
               terminal.write(androidCommand);
             }
           } else if (encodeURIComponent(data) === "%0D") {
@@ -81,7 +82,7 @@ export default function XTerm(props: Props) {
             }
 
             androidCommand += data;
-            terminal.write("\r" + "guest@fakhrusy.com ~$ ");
+            terminal.write("\r" + shellPrompt);
             terminal.write(androidCommand);
           }
         });
@@ -102,11 +103,11 @@ export default function XTerm(props: Props) {
             if (androidCommand === "reboot" || androidCommand === "shutdown") {
               setActiveDesktopApp("DesktopMainView");
 
-              terminal.write("\r\n" + "guest@fakhrusy.com ~$ ");
+              terminal.write("\r\n" + shellPrompt);
             } else if (androidCommand === "") {
-              terminal.write("\r" + "guest@fakhrusy.com ~$ ");
+              terminal.write("\r" + shellPrompt);
             } else {
-              terminal.write("\r\n" + "guest@fakhrusy.com ~$ ");
+              terminal.write("\r\n" + shellPrompt);
             }
 
             androidCommand = "";
@@ -121,7 +122,7 @@ export default function XTerm(props: Props) {
         });
       } else {
         terminal.write("\r\n");
-        terminal.write("guest@fakhrusy.com ~$ ");
+        terminal.write(shellPrompt);
         terminal.onKey((e) => {
           const ev = e.domEvent;
 
@@ -129,11 +130,11 @@ export default function XTerm(props: Props) {
             executeCommand({ command, terminal, router });
             if (command === "reboot" || command === "shutdown") {
               setActiveDesktopApp("DesktopMainView");
-              terminal.write("\r\n" + "guest@fakhrusy.com ~$ ");
+              terminal.write("\r\n" + shellPrompt);
             } else if (command === "") {
-              terminal.write("guest@fakhrusy.com ~$ ");
+              terminal.write(shellPrompt);
             } else {
-              terminal.write("\r\n" + "guest@fakhrusy.com ~$ ");
+              terminal.write("\r\n" + shellPrompt);
             }
             command = "";
           } else if (ev.key === "Backspace") {
