@@ -46,7 +46,7 @@ export const SnakeGame = () => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!gameStarted) {
-        if (e.key === "Enter") resetGame();
+        if (e.key === " ") resetGame();
         return;
       }
 
@@ -175,7 +175,7 @@ export const SnakeGame = () => {
       }
       
       ctx.font = "16px monospace";
-      ctx.fillText("Press Enter to start", canvas.width / 2, canvas.height / 2 + 30);
+      ctx.fillText("Press Spacebar to start", canvas.width / 2, canvas.height / 2 + 30);
     }
 
     if (isPaused && gameStarted && !gameOver) {

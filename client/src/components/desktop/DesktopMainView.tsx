@@ -52,7 +52,10 @@ export function DesktopMainView() {
   useEffect(() => {
     const eventHandler = (event: KeyboardEvent) => {
       if (focusedApp !== "DesktopMainView") {
-        if (event.key === "Escape") {
+        // set active app upon pressing enter when there is a focused app
+        if (event.key === "Enter") {
+          setActiveDesktopApp(focusedApp);
+        } else if (event.key === "Escape") {
           // release focused app
           setFocusedDesktopApp("DesktopMainView");
         }
@@ -67,27 +70,28 @@ export function DesktopMainView() {
   const unfocusApp = useCallback(
     (e) => {
       const isFocusedOnAnyApp = focusedApp !== "DesktopMainView";
-
-      if (isFocusedOnAnyApp) {
-        if (e.target.className.isArray) {
-
-          const isTargetNotDesktopIcon =
-            (e.target as HTMLDivElement)?.className
-              .split(" ")
-              .includes(className.desktopIcon) === false;
-
-          if (isTargetNotDesktopIcon) {
-            setFocusedDesktopApp("DesktopMainView");
+      const target = e.target as HTMLElement;
+      
+      const hasClassName = target && "className" in target;
+      const targetClassName = hasClassName ? target.className : "";
+      
+      const isDesktopIcon = typeof targetClassName === "string" 
+        ? targetClassName.includes(className.desktopIcon)
+        : (targetClassName as SVGAnimatedString)?.baseVal?.includes?.(className.desktopIcon) || false;
+      
+      if (isDesktopIcon) {
+        const iconElement = target.closest("[data-app-name]");
+        if (iconElement) {
+          const appName = iconElement.getAttribute("data-app-name");
+          if (appName) {
+            setFocusedDesktopApp(appName as App);
           }
-        } 
-      else {
-        setFocusedDesktopApp(focusedApp);
+        }
+      } else if (isFocusedOnAnyApp) {
+        setFocusedDesktopApp("DesktopMainView");
       }
-    }
-    },
-    [focusedApp, setFocusedDesktopApp]
+    },    [focusedApp, setFocusedDesktopApp]
   );
-
   const handleClick = useCallback(
     (e) => {
       unfocusApp(e);

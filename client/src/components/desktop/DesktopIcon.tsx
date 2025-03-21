@@ -37,7 +37,7 @@ export function DesktopIcon({
 }: Props) {
   const isDraggable = dragConstraintRef ? true : false;
   const isMobileIcon = !isDraggable;
-  const bgColor = isFocused ? "rgba(0, 0, 0, 0.3)" : "rgba(0, 0, 0, 0)";
+  const bgColor = isFocused ? "rgba(0, 145, 255, 0.3)" : "rgba(0, 0, 0, 0)";
 
   return (
     <Container
