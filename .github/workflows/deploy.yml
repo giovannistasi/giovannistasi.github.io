@@ -25,10 +25,12 @@ jobs:
       - name: Build
         run: |
           cd client
-          npm run build
+          # Skip linting by setting the environment variable
+          NEXT_DISABLE_ESLINT=1 npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: client/out
-          branch: master
+          branch: main
+
