@@ -13,6 +13,12 @@ const md = `
 
 <br />
 
+**Telegram**
+
+[@nomeac](https://t.me/nomeac)
+
+<br />
+
 **LinkedIn**
 
 [https://www.linkedin.com/in/giovannistasi/](https://www.linkedin.com/in/giovannistasi/)

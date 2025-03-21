@@ -9,11 +9,11 @@ const makeText: (isTouchDevice: boolean) => Array<AnimatedText> = (
 ) => {
   const lastElement: AnimatedText = isTouchDevice
     ? {
-        value: "Please tap anywhere to continue",
+        value: "Please tap anywhere to continue...",
         status: "Ok",
       }
     : {
-        value: "Please press ENTER/RETURN to continue",
+        value: "Please press ENTER/RETURN to continue...",
         status: "Ok",
       };
 

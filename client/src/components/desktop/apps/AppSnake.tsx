@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import SnakeGame from "./games/SnakeGame";
 import { AppLayout } from "./layout/AppLayout";
 import type { App } from "@/lib/apps/apps";
+import useIsTouchDevice from "@/lib/useIsTouchDevice";
 import { 
   setActiveDesktopApp as setActiveDesktopAppAction,
   SetActiveDesktopAppAction
@@ -16,10 +17,12 @@ export function AppSnakeGame() {
   >((payload) => dispatch(setActiveDesktopAppAction(payload)), [dispatch]);
   
   const onClose = () => setActiveDesktopApp("DesktopMainView");
+
+  const isTouchDevice = useIsTouchDevice();
   
   return (
     <AppLayout title="Snake Game" onClose={onClose}>
-      <SnakeGame />
+      {isTouchDevice ? <p>Unavailable on mobile :/</p> : <SnakeGame />}
     </AppLayout>
   );
 }
