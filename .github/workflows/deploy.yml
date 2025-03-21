@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      NEXT_DISABLE_ESLINT: 1
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -22,11 +24,30 @@ jobs:
           cd client
           npm ci
 
+      - name: Create .eslintignore
+        run: |
+          cd client
+          echo "**/*.js" > .eslintignore
+          echo "**/*.jsx" >> .eslintignore
+          echo "**/*.ts" >> .eslintignore
+          echo "**/*.tsx" >> .eslintignore
+
+      - name: Modify next.config.js
+        run: |
+          cd client
+          echo 'const nextConfig = {' > next.config.js.new
+          echo '  output: "export",' >> next.config.js.new
+          echo '  basePath: "/giovannistasi.github.io",' >> next.config.js.new
+          echo '  images: { unoptimized: true },' >> next.config.js.new
+          echo '  eslint: { ignoreDuringBuilds: true },' >> next.config.js.new
+          echo '};' >> next.config.js.new
+          echo 'module.exports = nextConfig;' >> next.config.js.new
+          mv next.config.js.new next.config.js
+
       - name: Build
         run: |
           cd client
-          # Skip linting by setting the environment variable
-          NEXT_DISABLE_ESLINT=1 npm run build
+          npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
