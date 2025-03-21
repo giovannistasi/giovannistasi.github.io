@@ -66,6 +66,11 @@ jobs:
         run: |
           cd client/out
           touch .nojekyll
+      
+      - name: Create CNAME file
+        run: |
+          cd client/out
+          echo "stasi.dev" > CNAME
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
