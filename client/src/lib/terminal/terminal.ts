@@ -26,7 +26,6 @@ export function executeCommand({ command, terminal, router }: Config) {
         newline;
         terminal.write("\r\nAvailable commands:");
         newline;
-        terminal.write("\r\n  help\t\tshow available commands");
         terminal.write("\r\n  start\taccess GUI");
         terminal.write("\r\n  shutdown\tshut the site down");
         terminal.write("\r\n  reboot\trestart the site");
@@ -35,7 +34,6 @@ export function executeCommand({ command, terminal, router }: Config) {
         newline;
         terminal.write("\r\nAvailable commands:");
         newline;
-        terminal.write("\r\n\thelp\t\tshow available commands");
         terminal.write("\r\n\tstart\t\taccess GUI");
         terminal.write("\r\n\tshutdown\tshut the site down");
         terminal.write("\r\n\treboot\t\trestart the site");
