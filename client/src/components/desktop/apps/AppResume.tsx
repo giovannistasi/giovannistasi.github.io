@@ -20,7 +20,7 @@ export function AppResume() {
     const onClose = () => setActiveDesktopApp("DesktopMainView");
   return <AppLayout title="Resume" onClose={onClose}>
       <embed
-        src="/docs/resume.pdf"
+        src="https://drive.google.com/file/d/1WoLVFxgRkAY29w-B3_SwAvfYKKljVuVD/preview"
         style={{
           width: "100%",
           height: "100%",
